@@ -13,7 +13,7 @@ swapon /dev/nvme1n1p2
 
 pacstrap /mnt base base-devel linux linux-firmware dhcpcd
 
-pacman -Sy archlinux-keyring
+pacman -S archlinux-keyring
 
 mkdir -p /mnt/boot
 mount /dev/nvme1n1p1 /mnt/boot
