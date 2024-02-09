@@ -1,3 +1,4 @@
+
 loadkeys fr
 pacman -Syy
 
@@ -8,16 +9,16 @@ mkfs.fat -F32 /dev/nvme1n1p1
 mkswap /dev/nvme1n1p2
 mkfs.ext4 /dev/nvme1n1p3
 
-mount /dev/nvme1n1p3 /mnt
 swapon /dev/nvme1n1p2
 
-pacstrap /mnt base base-devel linux linux-headers linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware dhcpcd
 
 pacman -Sy archlinux-keyring
 
 mkdir -p /mnt/boot
 mount /dev/nvme1n1p1 /mnt/boot
+mount /dev/nvme1n1p3 /mnt
 
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -L /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
