@@ -2,7 +2,6 @@ pacman -Syy
 
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
-timedatectl set-timezone Europe/Paris
 ntpdate -u 0.arch.pool.ntp.org
 hwclock --systohc
 
